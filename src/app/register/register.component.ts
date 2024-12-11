@@ -26,7 +26,7 @@ export class RegisterComponent {
     this.authService.register(this.registerObj).subscribe(
       (response) => {
         console.log('Inscription réussie', response);
-        alert('inscription réussi')
+        alert('inscription successful')
         // Afficher un message de confirmation ou rediriger l'utilisateur
         // this.router.navigate(['/login']); // Redirection vers la page de connexion
       },
