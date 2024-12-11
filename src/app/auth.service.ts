@@ -8,11 +8,12 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private link = 'http://localhost:3000/user'; // Base URL pour le backend
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   // Méthode pour enregistrer un utilisateur
   register(userData: { name: string; email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.link}`, userData);
+    return this.http.post(`${this.link}/register`, userData);
   }
 
   // Méthode pour se connecter
