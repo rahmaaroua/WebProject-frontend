@@ -27,6 +27,10 @@ export class AuthService {
     return this.http.get(`${this.link}/profile`);
   }
 
+  logout(){
+    localStorage.removeItem('token');
+  }
+
 
 }
 

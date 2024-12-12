@@ -15,7 +15,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'Trendora_frontend';
   
-  constructor(private router: Router) {}
+  constructor(private router: Router,private authService: AuthService) {}
 
   goToLogin() {
     this.router.navigate(['/login']);
@@ -23,5 +23,8 @@ export class AppComponent {
 
   goToRegister() {
     this.router.navigate(['/register']);
+  }
+  logout(){
+    this.authService.logout();
   }
 }
