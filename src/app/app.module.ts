@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginGuard } from './guard/login.guard';
 import { LoginInterceptor, LoginInterceptorProvider } from './interceptors/login.intercepter';
+import { ResetComponent } from './reset/reset.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,7 @@ import { LoginInterceptor, LoginInterceptorProvider } from './interceptors/login
     }
   ],
   bootstrap: [AppComponent],
-  exports: [LoginComponent, RegisterComponent],
+  exports: [LoginComponent, RegisterComponent,ResetComponent],
 
 })
 export class AppModule {}

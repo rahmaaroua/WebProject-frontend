@@ -151,18 +151,4 @@ h2 {
     position: relative;
 }
 
-.reset-link {
-    display: inline-block; /* Garder le texte sur la même ligne */
-    /*margin-top: 5px;/*Ajouter un petit espacement entre le champ mot de passe et le lien */
-    margin-bottom: 7px;
-    font-size: 0.9em; /* Taille de texte plus petite */
-    color: #a1a1a1; /* Couleur de texte pour le lien */
-    text-decoration: none; /* Enlever le soulignement par défaut */
-}
-
-/* Appliquer l'effet au survol du lien */
-.reset-link:hover {
-    text-decoration: underline; /* Souligner lors du survol */
-    cursor: pointer; /* Modifier le curseur pour signaler que c'est cliquable */
-}
 

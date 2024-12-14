@@ -3,13 +3,15 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
-import { LoginGuard } from './guard/login.guard';
+import { ResetComponent } from './reset/reset.component';
 
 export const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent, /*canActivate:[LoginGuard]*/ },
+    {path:'reset', component: ResetComponent}
+  
 ];
 
   

@@ -2,9 +2,9 @@
   <div class="container">
       <div class="login-box">
           <h2>Login</h2>
-          <!-- #loginForm="ngForm"     crée une référence locale du formulaire qui vous permet 
+          <!-- #loginForm="ngForm" crée une référence locale du formulaire qui vous permet 
           de manipuler et de valider facilement le formulaire directement depuis le template Angula-->
-          <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+          <form #loginForm="ngForm" >
               <div class="input-box">
                   <input 
                       type="email" 
@@ -25,6 +25,8 @@
                     >
                   <label>Password</label>
               </div>
+              <p class="reset-link"   [routerLink]="['/reset']" routerLinkActive="{exact:true}">Forgot your password?</p>
+
               <button type="button" class="btn" (click)="onLogin()" >Login</button>
               
               
