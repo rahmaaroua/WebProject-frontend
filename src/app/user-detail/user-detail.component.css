@@ -1,0 +1,64 @@
+/* Styles généraux de la page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5eadf; /* Beige clair */
+    font-family: Arial, sans-serif;
+  }
+  
+  .user-details {
+    width: 600px;
+    background-color: #fff8f0; /* Blanc cassé */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    animation: fadeIn 1s ease-in-out;
+margin-right: 90px;    
+    margin-top: 50px;
+  border: 1px solid #e0d6d3; /* Beige doux */
+  
+  }
+  
+  /* Titre principal */
+  h1 {
+    text-align: center;
+    color: #5a4e4d; /* Brun doux */
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Titre des sections */
+  h2 {
+    color: #8e6d4b; /* Beige foncé */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Groupes d'information */
+  .user-info, .profile-info {
+    margin-bottom: 25px;
+  }
+  
+  /* Style des paragraphes avec les données */
+  p {
+    font-size: 1.1rem;
+    color: #6e5039; /* Brun doux */
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #fffdfb; /* Beige clair */
+    border: 1px solid #d1c4c1; /* Bordure beige clair */
+    margin-bottom: 10px;
+  }
+  
+  /* Animation pour l'apparition du contenu */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

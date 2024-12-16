@@ -31,11 +31,28 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('token');
-    this.router.navigate(['/login']);//il va se naviguer vers welcomepage à la fin du projet
+    this.router.navigate(['/login']);
   }
 
   save(userData: { numerotelephone: number | null ; nationality: string; age: number|null  ; birthdate:Date | null; ville:string ; adresselivraison:string}): Observable<any> {
     return this.http.post(`${this.link}/save`, userData);
+  }
+  send( email: string): Observable<any> {
+    return this.http.post(`${this.link}/recover-password`, email);
+}
+  
+    // Méthode pour récupérer les détails de l'utilisateur et son profil
+    /*getUserWithProfile(id: number): Observable<any> {
+      return this.http.get<any>(`${this.link}/${id}`);
+    }
+  
+    // Méthode pour récupérer le profil de l'utilisateur
+    getProfileById(id: number): Observable<any> {
+      return this.http.get<any>(`${this.link}/profile/${id}`);
+    }*/
+      // Méthode pour récupérer l'utilisateur et son profil
+  getUserWithProfile(id: number): Observable<any> {
+    return this.http.get<any>(`${this.link}/${id}`);
   }
 }
 

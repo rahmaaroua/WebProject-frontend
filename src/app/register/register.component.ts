@@ -31,7 +31,7 @@ export class RegisterComponent {
         // this.router.navigate(['/login']); // Redirection vers la page de connexion
       },
       (error) => {
-        console.error('Inscription échouée:', error.message || 'Une erreur est survenue');
+        console.error('Inscription failed:', error.message || 'Une erreur est survenue');
       }
     );
   }

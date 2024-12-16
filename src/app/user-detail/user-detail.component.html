@@ -1,0 +1,23 @@
+<body>
+<div class="user-details">
+  <h1>User Details</h1>
+
+  <!-- Affichage des informations de l'utilisateur -->
+  <div class="user-info">
+    <h2>User Information</h2>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+  </div>
+
+  <!-- Affichage des informations du profil -->
+  <div class="profile-info">
+    <h2>Profile Information</h2>
+    <p><strong>Phone Number:</strong> {{ profile.numerotelephone }}</p>
+    <p><strong>Nationality:</strong> {{ profile.nationality }}</p>
+    <p><strong>Birthdate:</strong> {{ profile.birthdate | date }}</p>
+    <p><strong>Age:</strong> {{ profile.age }}</p>
+    <p><strong>City:</strong> {{ profile.ville }}</p>
+    <p><strong>Address:</strong> {{ profile.adresselivraison }}</p>
+  </div>
+</div>
+</body>

@@ -30,5 +30,8 @@ export class AppComponent {
   goToProfile() {
     this.router.navigate(['/profile']);
   }
+  goToUser() {
+    this.router.navigate(['user/:id']);
+  }
 
 }

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 export const routes: Routes = [
@@ -12,7 +13,9 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'register', component: RegisterComponent },
-    {path:'reset', component: ResetComponent}
+    {path:'reset', component: ResetComponent},
+    {path:'user/:id', component:UserDetailComponent}
+    
   ];
   
 

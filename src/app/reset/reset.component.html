@@ -3,7 +3,7 @@
         <div class="login-box">
             <h2>You Forgot Your password!!!</h2>
           
-            <form #loginForm="ngForm" >
+            <form #resetForm="ngForm" >
                 <div class="input-box">
                     <input 
                         type="email" 
@@ -15,7 +15,7 @@
                 </div>
                
   
-                <button type="button" class="btn"  >Send</button>
+                <button type="button" class="btn" (click)="send()" >Send</button>
                 
                 
             </form>

@@ -24,18 +24,18 @@ export class ProfileComponent {
   }
  
       
-  onSubmit():void{
+  onSubmit(): void {
     this.authService.save(this.client).subscribe(
       (response) => {
-        alert('Submit successful');
-        console.log('Submit successful', response);
+        console.log('Client information saved successfully:', response); // Clear and professional log message
+        alert('Your information has been saved successfully. Thank you for your trust!'); // Polite and professional user message
       },
       (error) => {
-        console.error('submit failed');
-        alert("submit failed")
+        console.error('An error occurred while saving client information:', error); // Detailed and professional error log
+        alert('An error occurred while saving your information. Please try again.'); // Clear and helpful user message
       }
-    )
-
+    );
   }
+  
 
 }

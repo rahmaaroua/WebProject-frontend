@@ -24,8 +24,6 @@ export class LoginInterceptor implements HttpInterceptor    {
     }
 }
 
-
-
 export const LoginInterceptorProvider = {
     provide: HTTP_INTERCEPTORS,
     useClass: LoginInterceptor,
