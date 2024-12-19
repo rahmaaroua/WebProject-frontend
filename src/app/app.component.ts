@@ -4,11 +4,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HttpClientModule,RouterOutlet,LoginComponent, RegisterComponent],
+  imports: [HttpClientModule,RouterOutlet,LoginComponent, RegisterComponent, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Corrige le nom (styleUrl → styleUrls)
 })
