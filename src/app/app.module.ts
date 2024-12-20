@@ -9,9 +9,14 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginGuard } from './guard/login.guard';
-import { LoginInterceptor, LoginInterceptorProvider } from './interceptors/login.intercepter';
+import {
+  LoginInterceptor,
+  LoginInterceptorProvider,
+} from './interceptors/login.intercepter';
 import { ResetComponent } from './reset/reset.component';
-import { CartComponent } from './cart/cart.component';
+import { CartsModule } from './carts/carts.module';
+import { SharedModule } from './shared/shared.module';
+import {  Routes } from '@angular/router';
 
 
 @NgModule({
@@ -20,20 +25,25 @@ import { CartComponent } from './cart/cart.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserModule,
-     FormsModule,
-     CommonModule,
-     RouterModule ,
-     CartComponent
+    FormsModule,
+    CommonModule,
+    RouterModule,
+    CartsModule,
+    LoginComponent,
+    RegisterComponent,
+    ResetComponent,
+    SharedModule
   ],
-  providers:[LoginGuard, LoginInterceptorProvider,
+  providers: [
+    LoginGuard,
+    LoginInterceptorProvider,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoginInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
-  exports: [LoginComponent, RegisterComponent,ResetComponent],
-
+  exports: [LoginComponent, RegisterComponent, ResetComponent],
 })
 export class AppModule {}
