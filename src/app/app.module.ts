@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginGuard } from './guard/login.guard';
 import { LoginInterceptor, LoginInterceptorProvider } from './interceptors/login.intercepter';
 import { ResetComponent } from './reset/reset.component';
+import { CartComponent } from './cart/cart.component';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,7 @@ import { ResetComponent } from './reset/reset.component';
      FormsModule,
      CommonModule,
      RouterModule ,
+     CartComponent
   ],
   providers:[LoginGuard, LoginInterceptorProvider,
     {

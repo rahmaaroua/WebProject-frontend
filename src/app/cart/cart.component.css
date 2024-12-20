@@ -1,0 +1,14 @@
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity .btn {
+  flex-shrink: 0;
+}
+
+.quantity .form-control {
+  width:70px;
+  text-align: center;
+}
