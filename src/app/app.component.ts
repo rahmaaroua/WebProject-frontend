@@ -23,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     CartComponent,
     FooterComponent,
     HeaderComponent,
+    
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Corrige le nom (styleUrl → styleUrls)

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgIf } from '@angular/common';
 import { AuthService } from '../auth.service';
 
+
 @Component({
   selector: 'app-data',
   standalone: true,
@@ -34,8 +35,8 @@ this.customerForm = this.fb.group({
     rate: [0,[ Validators.required, Validators.min(0), Validators.max(5)]],
     count: [0,[ Validators.required, Validators.min(0), Validators.max(5)]]
   })
-       
-    
+
+
 }); if (this.customer) {
   this.populateForm(this.customer);
 } this.updateButtonText();}
@@ -43,7 +44,7 @@ this.customerForm = this.fb.group({
     if (changes['customer'] && changes['customer'].currentValue) {
       this.populateForm(changes['customer'].currentValue);
     }
-   
+
 
     if (changes['isEditMode']) {
       this.updateButtonText();
@@ -52,8 +53,8 @@ this.customerForm = this.fb.group({
   updateButtonText(): void {
     this.buttonText = this.isEditMode ? 'Edit Customer' : 'Add Customer';
   }
-    
-  
+
+
 
   populateForm(customer: any): void {
     this.customerForm.patchValue({
