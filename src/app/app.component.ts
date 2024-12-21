@@ -38,6 +38,9 @@ export class AppComponent {
   goToLogin() {
     this.router.navigate(['/login']);
   }
+  goToCatalogue() {
+    this.router.navigate(['/catalogue']);
+  }
 
   goToRegister() {
     this.router.navigate(['/register']);

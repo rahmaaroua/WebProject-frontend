@@ -8,9 +8,10 @@ import { Router} from "@angular/router";
   providedIn: 'root'
 })
 export class AuthService {
-  private link = 'http://localhost:3000/user'; // Base URL pour le backend
-
-  constructor(private http: HttpClient,private router: Router) {
+  private link = 'http://localhost:3000/user';
+  // private pathUrl="http://localhost:3000/customers"
+  private pathUrl="https://fakestoreapi.com/products"
+  constructor(private http: HttpClient) {
   }
 
   // Méthode pour enregistrer un utilisateur
@@ -29,33 +30,18 @@ export class AuthService {
     return this.http.get(`${this.link}/profile`);
   }
 
-  logout(){
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+  getCustomers(): Observable<any[]> {
+    return this.http.get<any[]>(this.pathUrl);
   }
+  getCustomer(id:any): Observable<any> {
+    return this.http.get<any[]>(this.pathUrl+'/'+id);
+  }
+  addCustomer(customer: any): Observable<any> {
+    return this.http.post<any>(`${this.pathUrl}`, customer);
+  }
+  updateCustomer(customer: any): Observable<any> {
+    return this.http.put(`${this.pathUrl}/update/${customer.id}`, customer);
 
-  save(userData: { numerotelephone: number | null ; nationality: string; age: number|null  ; birthdate:Date | null; ville:string ; adresselivraison:string}): Observable<any> {
-    return this.http.post(`${this.link}/save`, userData);
-  }
-  send( email: string): Observable<any> {
-    return this.http.post(`${this.link}/recover-password`, email);
 }
-  
-    // Méthode pour récupérer les détails de l'utilisateur et son profil
-    /*getUserWithProfile(id: number): Observable<any> {
-      return this.http.get<any>(`${this.link}/${id}`);
-    }
-  
-    // Méthode pour récupérer le profil de l'utilisateur
-    getProfileById(id: number): Observable<any> {
-      return this.http.get<any>(`${this.link}/profile/${id}`);
-    }*/
-      // Méthode pour récupérer l'utilisateur et son profil
-  getUserWithProfile(id: number): Observable<any> {
-    return this.http.get<any>(`${this.link}/${id}`);
-  }
 }
-
-
-
 

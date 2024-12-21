@@ -3,6 +3,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ResetComponent } from './reset/reset.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { CartComponent } from './carts/cart/cart.component';
@@ -11,6 +12,8 @@ export const routes: Routes = [
   //{ path: '', component: AppComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'catalogue', component: CatalogueComponent },
   {
     path: 'register',
     component: RegisterComponent /*canActivate:[LoginGuard]*/,

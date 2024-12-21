@@ -8,6 +8,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DevExtremeModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxPopupModule, DxSelectBoxModule } from 'devextreme-angular';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 import { LoginGuard } from './guard/login.guard';
 import {
   LoginInterceptor,
@@ -15,7 +17,6 @@ import {
 } from './interceptors/login.intercepter';
 import { ResetComponent } from './reset/reset.component';
 import { CartsModule } from './carts/carts.module';
-import { SharedModule } from './shared/shared.module';
 import {  Routes } from '@angular/router';
 
 
@@ -25,14 +26,21 @@ import {  Routes } from '@angular/router';
     HttpClientModule,
     AppRoutingModule,
     BrowserModule,
-    FormsModule,
-    CommonModule,
-    RouterModule,
+     FormsModule,
+     CommonModule,
+     RouterModule ,
+     DxPopupModule,
+     DxCheckBoxModule,
+     DxSelectBoxModule,
+     DevExtremeModule,
+     DxNumberBoxModule,
+     DxFormModule,
+     DxButtonModule,
+     DxDataGridModule,
     CartsModule,
     LoginComponent,
     RegisterComponent,
-    ResetComponent,
-    SharedModule
+    ResetComponent
   ],
   providers: [
     LoginGuard,
@@ -44,6 +52,7 @@ import {  Routes } from '@angular/router';
     },
   ],
   bootstrap: [AppComponent],
-  exports: [LoginComponent, RegisterComponent, ResetComponent],
+  exports: [LoginComponent, RegisterComponent, ResetComponent,CatalogueComponent],
+
 })
 export class AppModule {}

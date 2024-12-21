@@ -1,0 +1,10 @@
+<dx-popup
+  [visible]="visible"
+  [width]="600"
+  [height]="600">
+  <div *dxTemplate="let option of 'content'">
+    <app-data [customer]="customer" [isEditMode]="isEditMode"></app-data>
+    <button class="close-button" (click)="closePopup()">Close</button>
+  </div>
+  
+</dx-popup>
