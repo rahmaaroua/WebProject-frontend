@@ -3,12 +3,14 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 
 export const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'catalogue', component: CatalogueComponent },
 ];
 
   

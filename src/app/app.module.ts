@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DevExtremeModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxPopupModule, DxSelectBoxModule } from 'devextreme-angular';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,9 +20,17 @@ import { AppRoutingModule } from './app-routing.module';
      FormsModule,
      CommonModule,
      RouterModule ,
+     DxPopupModule,
+     DxCheckBoxModule,
+     DxSelectBoxModule,
+     DevExtremeModule,
+     DxNumberBoxModule,
+     DxFormModule,
+     DxButtonModule,
+     DxDataGridModule
   ],
   bootstrap: [AppComponent],
-  exports: [LoginComponent, RegisterComponent],
+  exports: [LoginComponent, RegisterComponent,CatalogueComponent],
 
 })
 export class AppModule {}
