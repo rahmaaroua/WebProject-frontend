@@ -9,7 +9,6 @@ import { CartComponent } from './carts/cart/cart.component';
 
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from './footer/footer.component';
-import { SharedModule } from './shared/shared.module';
 
 
 @Component({
@@ -29,6 +28,9 @@ import { SharedModule } from './shared/shared.module';
   styleUrls: ['./app.component.css'], // Corrige le nom (styleUrl → styleUrls)
 })
 export class AppComponent {
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
   title = 'Trendora_frontend';
 
   constructor(private router: Router, private authService: AuthService) {}
