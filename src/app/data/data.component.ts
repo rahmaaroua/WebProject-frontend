@@ -51,7 +51,7 @@ this.customerForm = this.fb.group({
     }
   }
   updateButtonText(): void {
-    this.buttonText = this.isEditMode ? 'Edit Customer' : 'Add Customer';
+    this.buttonText = this.isEditMode ? 'Edit Product' : 'Add Product';
   }
 
 
