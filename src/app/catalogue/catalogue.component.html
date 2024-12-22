@@ -4,7 +4,7 @@
 
 
 <dx-data-grid
-  [dataSource]="customers"
+  [dataSource]="products"
   [showBorders]="true"
   keyExpr="id"
   [allowColumnReordering]="true"
@@ -73,14 +73,14 @@
 
 
 </dx-data-grid>
-<app-customer-popup
-  [customer]="currentCustomer"
+<app-product-popup
+  [product]="currentProduct"
   [visible]="popupVisible"
   (close)="closePopup()">
-</app-customer-popup>
+</app-product-popup>
 <app-form-popup
   [visible]="formPopupVisible"
-  [customer]="selectedCustomerId"
+  [product]="selectedProductId"
   [isEditMode]="isEditMode"
   (close)="closeFormPopup()">
 </app-form-popup>

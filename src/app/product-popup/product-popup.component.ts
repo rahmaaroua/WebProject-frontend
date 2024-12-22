@@ -27,7 +27,6 @@ export class CustomerPopupComponent {
 
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgModule, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { DataComponent } from '../data/data.component';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import {

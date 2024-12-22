@@ -1,4 +1,73 @@
-<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="id">ID</label>
+      <input id="id" formControlName="id">
+      <div *ngIf="productForm.controls['id'].invalid && productForm.controls['id'].touched">
+        ID is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="title">Title</label>
+      <input id="title" formControlName="title">
+      <div *ngIf="productForm.controls['title'].invalid && productForm.controls['title'].touched">
+        Title is required and must be at least 3 characters long.
+      </div>
+    </div>
+
+    <div>
+      <label for="price">Price</label>
+      <input id="price" formControlName="price">
+      <div *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched">
+        Price is required and must be a non-negative number.
+      </div>
+    </div>
+
+    <div>
+      <label for="category">Category</label>
+      <input id="category" formControlName="category">
+      <div *ngIf="productForm.controls['category'].invalid && productForm.controls['category'].touched">
+        Category is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="description">Description</label>
+      <input id="description" formControlName="description">
+      <div *ngIf="productForm.controls['description'].invalid && productForm.controls['description'].touched">
+        Description is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="image">Image URL</label>
+      <input id="image" formControlName="image">
+      <div *ngIf="productForm.controls['image'].invalid && productForm.controls['image'].touched">
+        A valid image URL is required.
+      </div>
+    </div>
+
+    <div formGroupName="rating">
+      <label for="rate">Rate</label>
+      <input id="rate" formControlName="rate">
+      <div *ngIf="productForm.get('rating.rate').invalid && productForm.get('rating.rate').touched">
+        Rate is required and must be between 0 and 5.
+      </div>
+
+      <label for="count">Count</label>
+      <input id="count" formControlName="count">
+      <div *ngIf="productForm.get('rating.count').invalid && productForm.get('rating.count').touched">
+        Count is required and must be a non-negative number.
+      </div>
+    </div>
+
+
+    <button type="submit" >{{ buttonText }}</button>
+</form>
+
+
+
+<!--<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="id">ID</label>
       <input id="id" formControlName="id">
@@ -6,7 +75,7 @@
         ID is required.
       </div>
     </div>
-    
+
     <div>
       <label for="title">Title</label>
       <input id="title" formControlName="title">
@@ -14,7 +83,7 @@
         Title is required and must be at least 3 characters long.
       </div>
     </div>
-    
+
     <div>
       <label for="price">Price</label>
       <input id="price" formControlName="price">
@@ -22,7 +91,7 @@
         Price is required and must be a non-negative number.
       </div>
     </div>
-    
+
     <div>
       <label for="category">Category</label>
       <input id="category" formControlName="category">
@@ -30,7 +99,7 @@
         Category is required.
       </div>
     </div>
-    
+
     <div>
       <label for="description">Description</label>
       <input id="description" formControlName="description">
@@ -38,7 +107,7 @@
         Description is required.
       </div>
     </div>
-    
+
     <div>
       <label for="image">Image URL</label>
       <input id="image" formControlName="image">
@@ -46,14 +115,14 @@
         A valid image URL is required.
       </div>
     </div>
-    
+
     <div formGroupName="rating">
       <label for="rate">Rate</label>
       <input id="rate" formControlName="rate">
       <div *ngIf="customerForm.get('rating.rate').invalid && customerForm.get('rating.rate').touched">
         Rate is required and must be between 0 and 5.
       </div>
-      
+
       <label for="count">Count</label>
       <input id="count" formControlName="count">
       <div *ngIf="customerForm.get('rating.count').invalid && customerForm.get('rating.count').touched">
@@ -61,6 +130,7 @@
       </div>
     </div>
 
-    
+
     <button type="submit" >{{ buttonText }}</button>
 </form>
+-->

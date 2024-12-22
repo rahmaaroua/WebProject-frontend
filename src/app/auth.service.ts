@@ -73,7 +73,7 @@ export class AuthService {
     return this.http.get<any>(`${this.link}/${id}`);
   }
 
-
+/*
   getCustomers(): Observable<any[]> {
     return this.http.get<any[]>(this.pathUrl);
   }
@@ -86,6 +86,6 @@ export class AuthService {
   updateCustomer(customer: any): Observable<any> {
     return this.http.put(`${this.pathUrl}/update/${customer.id}`, customer);
 
-}
+}*/
 }
 
