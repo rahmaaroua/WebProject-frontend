@@ -7,8 +7,9 @@ import { AuthService } from './auth.service';
 
 import { CartComponent } from './carts/cart/cart.component';
 
-import { HeaderComponent } from "./header/header.component";
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from "./shared/components/header/header.component";
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @Component({
@@ -23,7 +24,8 @@ import { FooterComponent } from './footer/footer.component';
     CartComponent,
     FooterComponent,
     HeaderComponent,
-    
+    SharedModule
+
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], // Corrige le nom (styleUrl → styleUrls)
