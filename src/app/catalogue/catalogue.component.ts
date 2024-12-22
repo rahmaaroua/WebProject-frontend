@@ -16,14 +16,27 @@ import { ProductPopupComponent } from '../product-popup/product-popup.component'
 @Component({
   selector: 'app-catalogue',
   standalone: true,
-  imports: [NgFor,NgIf,RouterOutlet,RouterModule,DataComponent,DxDataGridModule, DxButtonModule, DxPopupModule,FormPopupComponent,ReactiveFormsModule,ProductPopupComponent,ChildComponent],
+  imports: [
+    NgFor,
+    NgIf,
+    RouterOutlet,
+    RouterModule,
+    DataComponent,
+    DxDataGridModule,
+    DxButtonModule,
+    DxPopupModule,
+    FormPopupComponent,
+    ReactiveFormsModule,
+    ProductPopupComponent,
+    ChildComponent,
+  ],
   templateUrl: './catalogue.component.html',
-  styleUrl: './catalogue.component.css'
+  styleUrl: './catalogue.component.css',
 })
 export class CatalogueComponent implements OnInit {
-  products: any[]=[];
-  product:any;
-  selectedProductId: any ;
+  products: any[] = [];
+  product: any;
+  selectedProductId: any;
   currentProduct: any;
   popupVisible = false;
   formPopupVisible = false;
@@ -34,26 +47,25 @@ export class CatalogueComponent implements OnInit {
   emailButtonOptions: any;
   closeButtonOptions: any;
 
-  constructor(private service: ProductsService,private router: Router) {
+  cartProducts: any[] = []; // Array to store cart products
+
+
+  constructor(private service: ProductsService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.getProducts();
+    // Load the cart from local storage on initialization
+    const storedCart = localStorage.getItem('cartProducts');
+    if (storedCart) {
+      this.cartProducts = JSON.parse(storedCart);
+    }
   }
 
-
-
-
-
-
-
-  ngOnInit():void {
-    this.getProducts()
-  }
-
-
-
-  getProducts(){
-    this.service.getProducts().subscribe((products:any[])=> {this.products=products;
-      console.log("products",this.products)
+  getProducts() {
+    this.service.getProducts().subscribe((products: any[]) => {
+      this.products = products;
+      console.log('products', this.products);
     });
-
   }
   viewProductDetails(id: number): void {
     this.router.navigate(['/child', id]);
@@ -86,6 +98,16 @@ export class CatalogueComponent implements OnInit {
     this.selectedProductId = null;
   }
 
+  addToCart(product: any): void {
+    // Add the product to the cart array
+    this.cartProducts.push(product);
+
+    // Update the local storage
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
+
+    console.log('Product added to cart:', product);
+    console.log('Updated cart:', this.cartProducts);
+  }
 }
 
 /*

@@ -64,6 +64,8 @@
   <div *dxTemplate="let option of 'actionTemplate'">
   <button class="button-info" (click)="showInfo(option.data)">More Info</button>
   <button class="button-info" (click)="openFormPopup(option.data)">Edit Product</button>
+  <button class="button-info" (click)="addToCart(option.data)" >Add To Cart</button>
+
 
   </div>
   <dxo-selection mode="multiple"></dxo-selection>
