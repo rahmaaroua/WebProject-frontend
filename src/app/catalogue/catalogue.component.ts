@@ -49,7 +49,6 @@ export class CatalogueComponent implements OnInit {
 
   cartProducts: any[] = []; // Array to store cart products
 
-
   constructor(private service: ProductsService, private router: Router) {}
 
   ngOnInit(): void {
@@ -98,7 +97,7 @@ export class CatalogueComponent implements OnInit {
     this.selectedProductId = null;
   }
 
-  addToCart(product: any): void {
+  /*alertaddToCart(product: any): void {
     // Add the product to the cart array
     this.cartProducts.push(product);
 
@@ -107,8 +106,26 @@ export class CatalogueComponent implements OnInit {
 
     console.log('Product added to cart:', product);
     console.log('Updated cart:', this.cartProducts);
+  }*/
+
+  addToCart(product: any): void {
+    const existingProduct = this.cartProducts.find(
+      (item) => item.product.id === product.id
+    );
+
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      this.cartProducts.push({ product, quantity: 1 });
+    }
+
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
+
+    console.log('Product added to cart:', product);
+    console.log('Updated cart:', this.cartProducts);
   }
 }
+
 
 /*
 import { Component, enableProdMode} from '@angular/core'
