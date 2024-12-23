@@ -2109,6 +2109,10 @@ ol {
 .shop__cart__table tbody tr .cart__product__item {
 	overflow: hidden;
 	width: 585px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+    align-items: center;
 }
 
 .shop__cart__table tbody tr .cart__product__item img {
@@ -2124,6 +2128,7 @@ ol {
 .shop__cart__table tbody tr .cart__product__item .cart__product__item__title h6 {
 	color: #111111;
 	font-weight: 600;
+
 }
 
 .shop__cart__table tbody tr .cart__product__item .cart__product__item__title .rating i {
@@ -2285,7 +2290,7 @@ ol {
 	color: #111111;
 	font-weight: 600;
 	text-transform: uppercase;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .cart__total__procced ul {
@@ -2311,7 +2316,69 @@ ol {
 	border-radius: 50px;
 	text-align: center;
 	padding: 12px 0 10px;
+  width: 200px;
+  border:none;
+  margin: auto;
 }
+
+/*---------------------
+  Custom Cart Additions
+-----------------------*/
+
+/* Set a fixed height for all rows and ensure the content aligns */
+.shop__cart__table tbody tr {
+  height: 100px;
+  /* Adjust the height as needed */
+  vertical-align: middle;
+  /* Ensure content is vertically aligned */
+}
+
+/* Make images adapt to the fixed row height */
+.shop__cart__table tbody tr .cart__product__item img {
+  height: 100%;
+  /* Make the image adapt to the row height */
+  width: auto;
+  /* Maintain aspect ratio */
+  max-height: 100px;
+  /* Prevent overflow */
+  display: block;
+}
+
+/* Adjust the input width to match the button size */
+.shop__cart__table tbody tr .cart__quantity .input-text.qty.text {
+  width: 50px;
+  /* Match the button width */
+  text-align: center;
+  /* Align text in the center */
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 15%;
+  border-color: #eeeeee;
+  /* Include padding in width calculation */
+}
+.shop__cart__table tbody tr .quantity button{
+ margin-left : 3px;
+  margin-right: 3px;
+}
+/* Center the cart total box */
+.cart__total__procced {
+  position: center;
+  width: 100%;
+  /* Make sure it spans the entire row */
+}
+.shop-cart .row {
+  display: flex;
+  justify-content: center;
+  /* Horizontally centers the child element */
+  align-items: center;
+  /* Vertically centers the child element (optional) */
+}
+
+/* Ensure the col-lg-4 takes only as much space as its content */
+.shop-cart .row .col-lg-4 {
+  display: flex;
+  justify-content: center;
+  /* Centers the cart__total__procced within this column */}
 
 /*---------------------
   Checkout
