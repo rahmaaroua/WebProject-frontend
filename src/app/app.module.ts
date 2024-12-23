@@ -16,8 +16,8 @@ import {
   LoginInterceptorProvider,
 } from './interceptors/login.intercepter';
 import { ResetComponent } from './reset/reset.component';
-import { CartsModule } from './carts/carts.module';
 import {  Routes } from '@angular/router';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -37,12 +37,12 @@ import {  Routes } from '@angular/router';
     DxFormModule,
     DxButtonModule,
     DxDataGridModule,
-    CartsModule,
     LoginComponent,
     RegisterComponent,
     ResetComponent,
     CatalogueComponent,
-    
+    CartComponent,
+    BrowserModule
   ],
   providers: [
     LoginGuard,

@@ -63,7 +63,7 @@ export class CatalogueComponent implements OnInit {
   getProducts() {
     this.service.getProducts().subscribe((products: any[]) => {
       this.products = products;
-      console.log('products', this.products);
+      console.log('All products', this.products);
     });
   }
   viewProductDetails(id: number): void {

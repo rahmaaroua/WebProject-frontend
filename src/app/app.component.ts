@@ -5,11 +5,12 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
-import { CartComponent } from './carts/cart/cart.component';
+import { CartComponent } from './cart/cart.component';
 
 import { HeaderComponent } from "./shared/components/header/header.component";
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -24,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
     CartComponent,
     FooterComponent,
     HeaderComponent,
-    SharedModule
+    SharedModule,
+    FormsModule
 
   ],
   templateUrl: './app.component.html',

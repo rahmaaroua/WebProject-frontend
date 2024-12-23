@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ResetComponent } from './reset/reset.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { CartComponent } from './carts/cart/cart.component';
+import { CartComponent } from './cart/cart.component';
 
 export const routes: Routes = [
   //{ path: '', component: AppComponent },
