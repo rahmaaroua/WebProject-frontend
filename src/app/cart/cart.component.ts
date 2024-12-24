@@ -12,7 +12,7 @@ import { CartsService } from '../carts.service';
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
-  constructor(private service : CartsService) {}
+  constructor(private service: CartsService) {}
 
   cartProducts: any[] = [];
   total: any = 0;
@@ -47,40 +47,47 @@ export class CartComponent {
     localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
   minusAmount(index: number) {
-    this.cartProducts[index].quantity--;
-    this.getCartTotal();
-    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
+    if (this.cartProducts[index].quantity > 1) {
+      // prevent negative quantities
+      this.cartProducts[index].quantity--;
+      this.getCartTotal();
+      localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
+    }
   }
 
   detectChange() {
+    this.cartProducts = this.cartProducts.map((item) => {
+      if (item.quantity < 1) {
+        item.quantity = 1; // reset to minimum valid quantity
+      }
+      return item;
+    });
     this.getCartTotal();
     localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
-  deleteProduct(index: number){
+  deleteProduct(index: number) {
     this.cartProducts.splice(index, 1);
     this.getCartTotal();
-   localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
-  clearCart(){
-  this.cartProducts= [];
-   this.getCartTotal();
-  localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-
+  clearCart() {
+    this.cartProducts = [];
+    this.getCartTotal();
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
-  addCart(){
-     let products = this.cartProducts.map(item => {
-      return {productId: item.product.id, quantity: item.quantity}
-     })
+  addCart() {
+    let products = this.cartProducts.map((item) => {
+      return { productId: item.product.id, quantity: item.quantity };
+    });
     let Model = {
-      userID:5,
+      userID: 5,
       date: new Date(),
-      products:products
-    }
-    this.service.createNewCart(Model).subscribe(res =>{ this.success = true}
-  )
+      products: products,
+    };
+    this.service.createNewCart(Model).subscribe((res) => {
+      this.success = true;
+    });
 
-    console.log(Model)
+    console.log(Model);
   }
-
 }

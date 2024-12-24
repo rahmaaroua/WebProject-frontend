@@ -37,17 +37,17 @@
                                     <td class="cart__price"> $ {{item.product.price | number: '1.0-3' }}</td>
                                     <td class="cart__quantity">
                                         <div class="quantity">
-                                            <button class="btn btn-dark" (click)="addAmount(index)">
-                                                <i class="bi bi-plus"></i>
-                                            </button>
 
+                                             <button class="btn btn-dark" (click)="minusAmount(index)">
+                                                <i class="bi bi-dash"></i>
+                                            </button>
 
                                             <!--<input formControlName="quantity" type="number" min="1">-->
                                               <input
                                                 type="number"
                                                 size="4"
                                                 class="input-text qty text"
-                                                title="Qty"
+                                                title="Quantity"
                                                 (change)="detectChange()"
                                                 [(ngModel)]="item.quantity"
                                                 name="quantity"
@@ -57,8 +57,10 @@
 
 
 
-                                            <button class="btn btn-dark" (click)="minusAmount(index)">
-                                                <i class="bi bi-dash"></i>
+
+
+                                            <button class="btn btn-dark" (click)="addAmount(index)">
+                                                <i class="bi bi-plus"></i>
                                             </button>
                                         </div>
                                     </td>

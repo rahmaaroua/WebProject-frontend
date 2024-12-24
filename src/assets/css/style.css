@@ -2380,6 +2380,16 @@ ol {
   justify-content: center;
   /* Centers the cart__total__procced within this column */}
 
+
+    /* Target the input fields inside the .quantity class within .cart__quantity */
+    .cart__quantity .quantity input[type="number"]::-webkit-inner-spin-button,
+    .cart__quantity .quantity input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+ 
+
 /*---------------------
   Checkout
 -----------------------*/
