@@ -3,14 +3,14 @@ import { NgFor } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 
-import { DataComponent } from '../data/data.component';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { DxDataGridModule, DxButtonModule, DxPopupModule } from 'devextreme-angular';
 import { FormPopupComponent } from '../form-popup/form-popup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChildComponent } from '../child/child.component';
-import { ProductsService } from '../products.service';
 import { ProductPopupComponent } from '../product-popup/product-popup.component';
+import { ProductsService } from '../products.service';
+import { DataComponent } from '../data/data.component';
 
 
 @Component({
@@ -28,7 +28,7 @@ import { ProductPopupComponent } from '../product-popup/product-popup.component'
     FormPopupComponent,
     ReactiveFormsModule,
     ProductPopupComponent,
-    ChildComponent,
+    ChildComponent
   ],
   templateUrl: './catalogue.component.html',
   styleUrl: './catalogue.component.css',

@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DevExtremeModule, DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxFormModule, DxNumberBoxModule, DxPopupModule, DxSelectBoxModule } from 'devextreme-angular';
-import { CatalogueComponent } from './catalogue/catalogue.component';
+import { CatalogueComponent } from './Products/catalogue/catalogue.component';
 import { LoginGuard } from './guard/login.guard';
 import {
   LoginInterceptor,
@@ -17,7 +17,7 @@ import {
 } from './interceptors/login.intercepter';
 import { ResetComponent } from './reset/reset.component';
 import {  Routes } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './Carts/cart/cart.component';
 
 
 @NgModule({

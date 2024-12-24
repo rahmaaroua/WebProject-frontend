@@ -5,12 +5,13 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
-import { CartComponent } from './cart/cart.component';
+
 
 import { HeaderComponent } from "./shared/components/header/header.component";
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from './Carts/cart/cart.component';
 
 
 @Component({
@@ -22,7 +23,6 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     LoginComponent,
     RegisterComponent,
-    CartComponent,
     FooterComponent,
     HeaderComponent,
     SharedModule,

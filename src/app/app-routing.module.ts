@@ -6,7 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './Carts/cart/cart.component';
 
 
 
