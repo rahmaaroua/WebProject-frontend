@@ -10,6 +10,13 @@ import { Router} from "@angular/router";
 export class AuthService {
   private link = 'http://localhost:3000/user'; // Base URL pour le backend
 
+  private userData = {
+    firstName: 'Jean',
+    lastName: 'Dupont',
+    email: 'jean.dupont@example.com'
+  };
+
+  
   constructor(private http: HttpClient,private router: Router) {
   }
 
@@ -53,6 +60,10 @@ export class AuthService {
       // Méthode pour récupérer l'utilisateur et son profil
   getUserWithProfile(id: number): Observable<any> {
     return this.http.get<any>(`${this.link}/${id}`);
+  }
+
+  getUserData() {
+    return this.userData;
   }
 }
 

@@ -3,15 +3,16 @@ body{
     padding: 100px;
     background: #f5eadf; /* Beige clair avec une touche plus neutre */
 }
-p{
+h2{
     font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
-    padding-left: 15px;
+    padding-left: 5%;
     color: #6e5039;
     font-style: italic;
+    display: center;
 }
 .user-form {
-    max-width: 600px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #d3a588;
