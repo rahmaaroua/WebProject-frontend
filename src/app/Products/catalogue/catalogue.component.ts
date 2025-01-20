@@ -11,6 +11,9 @@ import { ChildComponent } from '../child/child.component';
 import { ProductPopupComponent } from '../product-popup/product-popup.component';
 import { ProductsService } from '../products.service';
 import { DataComponent } from '../data/data.component';
+import { Product } from '../product.model';
+import { Cart } from '../../Carts/cart.models';
+import { CartsService } from '../../Carts/carts.service';
 
 
 @Component({
@@ -28,7 +31,7 @@ import { DataComponent } from '../data/data.component';
     FormPopupComponent,
     ReactiveFormsModule,
     ProductPopupComponent,
-    ChildComponent
+    ChildComponent,
   ],
   templateUrl: './catalogue.component.html',
   styleUrl: './catalogue.component.css',
@@ -49,7 +52,7 @@ export class CatalogueComponent implements OnInit {
 
   cartProducts: any[] = []; // Array to store cart products
 
-  constructor(private service: ProductsService, private router: Router) {}
+  constructor(private service: ProductsService,private cartService: CartsService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -108,24 +111,13 @@ export class CatalogueComponent implements OnInit {
     console.log('Updated cart:', this.cartProducts);
   }*/
 
-  addToCart(product: any): void {
-    const existingProduct = this.cartProducts.find(
-      (item) => item.product.id === product.id
-    );
-
-    if (existingProduct) {
-      existingProduct.quantity += 1;
-    } else {
-      this.cartProducts.push({ product, quantity: 1 });
-    }
-
-    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-
+  addToCart(product: Product): void {
+  this.cartService.addToCart(product.id).subscribe((cart) => {
     console.log('Product added to cart:', product);
-    console.log('Updated cart:', this.cartProducts);
-  }
+    console.log('Updated cart:', cart.cartItems);
+  });
 }
-
+}
 
 /*
 import { Component, enableProdMode} from '@angular/core'
