@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 import { HeaderComponent } from "./shared/components/header/header.component";
@@ -30,7 +31,9 @@ import { CartComponent } from './Carts/cart/cart.component';
 
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'], // Corrige le nom (styleUrl → styleUrls)
+  styleUrls: ['./app.component.css'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajoutez cette ligne
+
 })
 export class AppComponent {
   navigateTo(route: string): void {
