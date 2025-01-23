@@ -7,9 +7,10 @@ import { CatalogueComponent } from './Products/catalogue/catalogue.component';
 import { ResetComponent } from './reset/reset.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { CartComponent } from './Carts/cart/cart.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-  //{ path: '', component: AppComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent },
@@ -20,7 +21,9 @@ export const routes: Routes = [
   },
   { path: 'reset', component: ResetComponent },
   { path: 'user/:id', component: UserDetailComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  //{ path: 'home', component: HomeComponent }
+
 ];
 
 

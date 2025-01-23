@@ -18,6 +18,9 @@ import {
 import { ResetComponent } from './reset/reset.component';
 import {  Routes } from '@angular/router';
 import { CartComponent } from './Carts/cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { CartComponent } from './Carts/cart/cart.component';
     ResetComponent,
     CatalogueComponent,
     CartComponent,
-    BrowserModule
+    BrowserModule,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   providers: [
     LoginGuard,
@@ -53,7 +59,7 @@ import { CartComponent } from './Carts/cart/cart.component';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [],
   exports: [
     LoginComponent,
     RegisterComponent,

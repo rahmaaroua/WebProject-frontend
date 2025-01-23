@@ -7,12 +7,13 @@ import { AuthService } from './auth.service';
 
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+import { IonicModule } from '@ionic/angular';
 
-import { HeaderComponent } from "./shared/components/header/header.component";
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './Carts/cart/cart.component';
+import { HomeComponent } from './home/home.component';
 
 
 @Component({
@@ -26,13 +27,13 @@ import { CartComponent } from './Carts/cart/cart.component';
     RegisterComponent,
     FooterComponent,
     HeaderComponent,
-    SharedModule,
-    FormsModule
+    FormsModule,
+    HomeComponent
 
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajoutez cette ligne
+  //schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajoutez cette ligne
 
 })
 export class AppComponent {
