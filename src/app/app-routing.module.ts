@@ -10,7 +10,7 @@ import { CartComponent } from './Carts/cart/cart.component';
 
 
 
-export const routes: Routes = [
+export const routes: Routes = [è
   { path: '', component: AppComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
