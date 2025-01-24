@@ -12,6 +12,14 @@ export class AuthService {
   // private pathUrl="http://localhost:3000/customers"
   private pathUrl = 'https://fakestoreapi.com/products';
 
+  private userData = {
+    firstName: 'Jean',
+    lastName: 'Dupont',
+    email: 'jean.dupont@example.com'
+  };
+
+
+
   constructor(private http: HttpClient, private router: Router) {}
 
   // Méthode pour enregistrer un utilisateur
@@ -44,7 +52,7 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
-  
+
 
   save(userData: {
     numerotelephone: number | null;
@@ -74,6 +82,14 @@ export class AuthService {
     return this.http.get<any>(`${this.link}/${id}`);
   }
 
+  getUserData() {
+    return this.userData;
+  }
+}
+
+
+
+
 /*
   getCustomers(): Observable<any[]> {
     return this.http.get<any[]>(this.pathUrl);
@@ -88,5 +104,5 @@ export class AuthService {
     return this.http.put(`${this.pathUrl}/update/${customer.id}`, customer);
 
 }*/
-}
+
 
