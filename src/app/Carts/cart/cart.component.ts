@@ -133,7 +133,7 @@ export class CartComponent {
 
         // Remove the product from the UI in case of backend sync delay
         if (this.cartProducts.length === 0) {
-          window.location.reload(); // Reload the page
+          //window.location.reload(); // Reload the page
 
 
           this.cartProducts = [];
