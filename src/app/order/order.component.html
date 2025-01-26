@@ -11,10 +11,10 @@
             </tr>
         </thead>
         <tr *ngFor="let product of selectedProducts">
-            <td>{{ product.name }}</td>
+            <td>{{ product.product.title }}</td>
             <td>{{product.quantity}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.quantity * product.price}} DT</td>
+            <td>{{product.product.price}}</td>
+            <td>{{product.quantity * product.product.price}} DT</td>
         </tr>
     </table>
     <h4>Total : {{ calculateTotal() }} DT</h4>

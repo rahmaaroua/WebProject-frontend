@@ -1,98 +1,86 @@
-body{
-    margin: -10px;
-    padding: 100px;
-    background: #f5eadf; /* Beige clair avec une touche plus neutre */
+body {
+  margin: -10px;
+  padding: 100px;
+  background: #f5eadf;
+  /* Light beige with a neutral touch */
 }
-h2{
-    font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: large;
-    padding-left: 5%;
-    color: #6e5039;
-    font-style: italic;
-    display: center;
-    text-align: left;
+
+h2 {
+  font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: large;
+  padding-left: 5%;
+  color: #6e5039;
+  font-style: italic;
+  text-align: left;
 }
-.user-form {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #d3a588;
-    border-radius: 5px;
-    background: #e3d5c6;
-  }
 
-  .products-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
+.user-form,
+.order-list {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #d3a588;
+  border-radius: 5px;
+  background: #e3d5c6;
+}
 
-  .products-list th, .products-list td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
+/* Shared styling for both tables and forms */
+.order-list {
+  margin-top: 30px;
+  /* Add spacing between sections */
+}
 
-  .user-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
+.order-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout: fixed;
+  /* Ensures even column width distribution */
+}
 
-  .user-form input {
-    width: 97%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+.order-list th,
+.order-list td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  /* Increase padding for better readability */
+  text-align: left;
+  /* Align text to the left */
+  word-wrap: break-word;
+  /* Handle long text gracefully */
+}
 
-  button {
-    padding: 10px 15px;
-    background-color: #6e5039;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.order-list th {
+  background-color: #f0e3d9;
+  /* Slightly different background for headers */
+  font-weight: bold;
+}
 
-  button:disabled {
-    background-color: #baa89c;
-  }
-    .order-list {
-      max-width: 90%;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 5px;
-    }
+.user-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
 
+.user-form input {
+  width: 97%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
+button {
+  padding: 10px 15px;
+  background-color: #6e5039;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-    .user-form label,
-    .order-list h4 {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-
-
-    .user-form input,
-    .order-list h4 {
-      width: 97%;
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border-radius: 4px;
-    }
-        .products-list table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-bottom: 20px;
-        }
-
-        .products-list th,
-        .products-list td {
-          border: 1px solid #ddd;
-          padding: 8px;
-          text-align: left;
-        }
+button:disabled {
+  background-color: #baa89c;
+  cursor: not-allowed;
+}

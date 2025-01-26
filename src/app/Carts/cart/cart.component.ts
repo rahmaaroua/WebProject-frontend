@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Common } from 'devextreme-angular';
 import { CartsService } from '../carts.service';
 import { Cart, CartItem } from '../cart.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ import { Cart, CartItem } from '../cart.models';
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
-  constructor(private service: CartsService) {}
+  constructor(private service: CartsService, private router : Router) {}
 
   cartProducts: CartItem[] = [];
   total: number = 0;
@@ -119,36 +120,29 @@ export class CartComponent {
 
     console.log(`Deleting product with ID: ${productId}`);
 
-    this.service.removeFromCart(productId).subscribe(
-      (cart) => {
-        console.log(`Product ID ${productId} removed successfully`);
+    this.service.removeFromCart(productId).subscribe((cart) => {
+      console.log(`Product ID ${productId} removed successfully`);
 
+      // Update the cartProducts and total
+      this.cartProducts = cart.cartItems;
+      this.total = cart.totalPrice;
+      console.log('Updated cart items:', this.cartProducts);
 
-        // Update the cartProducts and total
-        this.cartProducts = cart.cartItems;
-        this.total = cart.totalPrice;
-        console.log('Updated cart items:', this.cartProducts);
+      // Remove the product from the UI in case of backend sync delay
+      if (this.cartProducts.length === 0) {
+        //window.location.reload(); // Reload the page
 
-
-
-        // Remove the product from the UI in case of backend sync delay
-        if (this.cartProducts.length === 0) {
-          //window.location.reload(); // Reload the page
-
-
-          this.cartProducts = [];
-          this.total = 0;
-        }
-      },
-
-    );
+        this.cartProducts = [];
+        this.total = 0;
+      }
+    });
   }
 
   clearCart(): void {
     console.log(`clearCart called`);
 
     this.service.clearCart().subscribe(
-      (cart : Cart) => {
+      (cart: Cart) => {
         console.log(`Cart cleared successfully`);
         this.cartProducts = [];
         this.total = 0;
@@ -157,10 +151,6 @@ export class CartComponent {
         console.error('Error clearing cart:', error);
       }
     );
-  }
-
-  checkout(): void {
-    // call checkout method in the order module
   }
 
   private updateCartItemQuantity(productId: number, quantity: number): void {
@@ -189,49 +179,13 @@ export class CartComponent {
     }
   }
 
-  // getCartTotal(): void {
-  //   this.total = 0;
-  //   for (let x in this.cartProducts) {
-  //     this.total +=
-  //       this.cartProducts[x].product.price * this.cartProducts[x].quantity;
-  //   }
-  // }
-  // addAmount(index: number) {
-  //   this.cartProducts[index].quantity++;
-  //   this.getCartTotal();
-  //   localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
 
-  // minusAmount(index: number) {
-  //   if (this.cartProducts[index].quantity > 1) {
-  //     // prevent negative quantities
-  //     this.cartProducts[index].quantity--;
-  //     this.getCartTotal();
-  //     localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-  //   }
-  // }
+  checkout(): void {
+    console.log('Checkout clicked. Sending cart items to Order Module.');
+    this.service.setSelectedProducts(this.cartProducts);
+    // Redirect to the order page (adjust the route based on your setup)
+    //window.location. = '/order'; // Replace with your Angular Router navigation if needed
+    this.router.navigate(['/order']);
 
-  // detectChange() {
-  //   this.cartProducts = this.cartProducts.map((item) => {
-  //     if (item.quantity < 1) {
-  //       item.quantity = 1; // reset to minimum valid quantity
-  //     }
-  //     return item;
-  //   });
-  //   this.getCartTotal();
-  //   localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-  // }
-  // deleteProduct(index: number) {
-  //   this.cartProducts.splice(index, 1);
-  //   this.getCartTotal();
-  //   localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-  // }
-  // clearCart() {
-  //   this.cartProducts = [];
-  //   this.getCartTotal();
-  //   localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-  // }
-  // checkout() {
-
-  //   //checkout logic
-  // }
+  }
 }

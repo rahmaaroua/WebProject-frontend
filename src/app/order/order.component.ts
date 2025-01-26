@@ -3,7 +3,8 @@ import { ReactiveFormsModule,FormControl, FormGroup, Validators } from '@angular
 import { AuthService } from '../auth.service';
 import { OrderService } from '../order.service';
 import { CommonModule } from '@angular/common';
-
+import { CartItem } from '../Carts/cart.models';
+import { CartsService } from '../Carts/carts.service';
 @Component({
   selector: 'app-order',
   standalone: true,
@@ -14,15 +15,23 @@ import { CommonModule } from '@angular/common';
 
 })
 export class OrderComponent implements OnInit{
-  selectedProducts : any[]=[];
+  selectedProducts : CartItem[]=[];
 
   constructor(
     private orderService: OrderService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cartservice: CartsService
   ){}
 
   ngOnInit(): void {
-      this.selectedProducts = this.orderService.getSelectedProducts();
+      //this.selectedProducts = this.orderService.getSelectedProducts();
+
+      // Fetch selected products from the cart service
+    this.cartservice.getSelectedProducts().subscribe((products) => {
+      this.selectedProducts = products;
+      console.log('Selected products:', this.selectedProducts);
+    });
+
   }
 
   userData = this.authService.getUserData();
@@ -37,7 +46,7 @@ export class OrderComponent implements OnInit{
 
   calculateTotal(): number{
     return this.selectedProducts.reduce(
-      (total , product) => total+ product.quantity * product.price ,0
+      (total , product) => total+ product.quantity * product.product.price ,0
     );
   }
 

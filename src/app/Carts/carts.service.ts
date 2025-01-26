@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Cart } from './cart.models';
+import { Cart, CartItem } from './cart.models';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartsService {
   baseApi = 'http://localhost:3000/cart';
+  private selectedForOrderProducts = new BehaviorSubject<CartItem[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -40,7 +42,6 @@ export class CartsService {
     });
   }
 
-
   updateCartItemQuantity(
     productId: number,
     quantity: number
@@ -61,5 +62,13 @@ export class CartsService {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
     });
+  }
+
+  setSelectedProducts(products: CartItem[]): void {
+    this.selectedForOrderProducts.next(products);
+  }
+
+  getSelectedProducts() {
+    return this.selectedForOrderProducts.asObservable();
   }
 }
