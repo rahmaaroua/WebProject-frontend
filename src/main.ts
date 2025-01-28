@@ -6,13 +6,14 @@ import { HttpClientModule} from '@angular/common/http';  // Importation de HttpC
 import { importProvidersFrom } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginInterceptorProvider } from './app/interceptors/login.intercepter';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(AppComponent, {
   providers: [
     LoginInterceptorProvider,
     provideRouter(routes),
     importProvidersFrom(HttpClientModule, FormsModule),
-    importProvidersFrom(ReactiveFormsModule), // Importez le module HTTP
+    importProvidersFrom(ReactiveFormsModule), provideAnimationsAsync(), // Importez le module HTTP
 
   ],
 }).catch((err) => console.error(err));
