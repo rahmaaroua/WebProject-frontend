@@ -37,7 +37,7 @@
                                     <td class="cart__price">$ {{ item.product.price | number: '1.0-3' }}</td>
                                     <td class="cart__quantity">
                                         <div class="quantity">
-                                            <button class="btn btn-dark" (click)="minusAmount(index)">
+                                            <button class="btn btn-dark no-shadow" (click)="minusAmount(index)">
                                                 <i class="bi bi-dash"></i>
                                             </button>
                                             <input
@@ -51,7 +51,7 @@
                                                 min="1"
                                                 step="1"
                                             />
-                                            <button class="btn btn-dark" (click)="addAmount(index)">
+                                            <button class="btn btn-dark no-shadow" (click)="addAmount(index)">
                                                 <i class="bi bi-plus"></i>
                                             </button>
                                         </div>

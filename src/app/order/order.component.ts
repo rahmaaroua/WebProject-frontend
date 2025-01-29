@@ -26,10 +26,8 @@ export class OrderComponent implements OnInit{
   ngOnInit(): void {
       //this.selectedProducts = this.orderService.getSelectedProducts();
 
-      // Fetch selected products from the cart service
     this.cartservice.getSelectedProducts().subscribe((products) => {
       this.selectedProducts = products;
-      console.log('Selected products:', this.selectedProducts);
     });
 
   }

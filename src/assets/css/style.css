@@ -109,6 +109,9 @@ ol {
 /*---------------------
   Helper CSS
 -----------------------*/
+.no-shadow {
+  box-shadow: none !important;
+}
 
 .section-title {
   margin-bottom: 45px;
@@ -503,6 +506,30 @@ ol {
   line-height: 18px;
   text-align: center;
   border-radius: 50%;
+}
+
+.header__right__widget li {
+  position: relative;
+}
+
+.header__right__widget li a .hover-text {
+  display: none;
+  position: absolute;
+  top:25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header__right__widget li a:hover .hover-text {
+  display: block;
 }
 
 .offcanvas-menu-wrapper {

@@ -113,8 +113,7 @@ export class CatalogueComponent implements OnInit {
 
   addToCart(product: Product): void {
   this.cartService.addToCart(product.id).subscribe((cart) => {
-    console.log('Product added to cart:', product);
-    console.log('Updated cart:', cart.cartItems);
+    this.cartService.setSelectedProducts(cart.cartItems); 
   });
 }
 }

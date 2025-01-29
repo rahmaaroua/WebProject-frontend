@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Cart, CartItem } from './cart.models';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartsService {
   baseApi = 'http://localhost:3000/cart';
-  private selectedForOrderProducts = new BehaviorSubject<CartItem[]>([]);
+  private selectedProducts = new BehaviorSubject<CartItem[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -65,10 +65,20 @@ export class CartsService {
   }
 
   setSelectedProducts(products: CartItem[]): void {
-    this.selectedForOrderProducts.next(products);
+    this.selectedProducts.next(products);
   }
 
   getSelectedProducts() {
-    return this.selectedForOrderProducts.asObservable();
+    return this.selectedProducts.asObservable();
+  }
+  getCartItemCount(): Observable<number> {
+    return this.selectedProducts.pipe(
+      map((items: CartItem[]) =>
+        items.reduce(
+          (count: number, item: CartItem) => count + item.quantity,
+          0
+        )
+      )
+    );
   }
 }
