@@ -263,8 +263,7 @@ h2.section-title {
 /* Product card button transitions */
 .product-card .card-action-btn,
 .product-card .cart-btn {
-  transition: all 0.2s ease;
-  /* Reduced from default transition time */
+  transition: all 0.2s ease; /* Reduced from default transition time */
 }
 
 .product-card .cart-btn:is(:hover, :focus) {
@@ -277,8 +276,6 @@ h2.section-title {
 .product-card .card-actions {
   transition: transform 0.3s ease;
 }
-/* ...keep existing code... */
-
 /* Update newsletter button */
 .newsletter-card .btn {
   background: #ca1515;
