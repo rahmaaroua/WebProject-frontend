@@ -4,11 +4,12 @@ import { Common } from 'devextreme-angular';
 import { CartsService } from '../carts.service';
 import { Cart, CartItem } from '../cart.models';
 import { Router } from '@angular/router';
+import { CommonModule, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [ FormsModule],
+  imports: [FormsModule, CommonModule, DecimalPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
@@ -76,7 +77,6 @@ export class CartComponent {
     });
   }
   private updateCartItemQuantity(productId: number, quantity: number): void {
-
     this.service.updateCartItemQuantity(productId, quantity).subscribe(
       (cart: Cart) => {
         this.cartProducts = cart.cartItems;
@@ -92,9 +92,7 @@ export class CartComponent {
   deleteProduct(index: number): void {
     const productId = this.cartProducts[index].product.id;
 
-
     this.service.removeFromCart(productId).subscribe((cart) => {
-
       this.cartProducts = cart.cartItems;
       this.total = cart.totalPrice;
       this.service.setSelectedProducts(cart.cartItems);
@@ -108,7 +106,6 @@ export class CartComponent {
   }
 
   clearCart(): void {
-
     this.service.clearCart().subscribe(
       (cart: Cart) => {
         this.cartProducts = [];
@@ -120,8 +117,6 @@ export class CartComponent {
       }
     );
   }
-
-
 
   checkout(): void {
     this.service.setSelectedProducts(this.cartProducts);

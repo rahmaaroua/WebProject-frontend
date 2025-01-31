@@ -166,6 +166,175 @@ h3>a {
   font-weight: var(--fw-500);
 }
 
+/* ...existing code until buttons... */
+
+h2.section-title {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #111111;
+}
+
+.btn {
+  font-size: 14px;
+  color: #ffffff;
+  background: #ca1515;
+  font-weight: 600;
+  border: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: #111111;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #ca1515;
+  color: #111111;
+}
+
+.btn-outline:hover {
+  background: #ca1515;
+  color: #ffffff;
+}
+
+/* Update typography styles */
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #111111;
+}
+
+.h1 {
+  font-size: 70px;
+  line-height: 1.1;
+}
+
+.h2 {
+  font-size: 36px;
+}
+
+.h3 {
+  font-size: 24px;
+}
+
+/* Update hero section colors */
+.hero-subtitle {
+  color: #ca1515;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.hero-title {
+  color: #111111;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Update service section */
+.service-item-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #111111;
+}
+
+/* Update product card styles */
+.product-card .cart-btn {
+  background: #ca1515;
+  color: #ffffff;
+}
+
+.product-card .cart-btn:hover {
+  background: #111111;
+}
+
+/* Update category link styles */
+.category-link::after {
+  background: #ca1515;
+}
+/* Product card button transitions */
+.product-card .card-action-btn,
+.product-card .cart-btn {
+  transition: all 0.2s ease;
+  /* Reduced from default transition time */
+}
+
+.product-card .cart-btn:is(:hover, :focus) {
+  transition: all 0.2s ease;
+  background: var(--white);
+  color: var(--eerie-black);
+}
+
+/* Keep the card actions container transition separate */
+.product-card .card-actions {
+  transition: transform 0.3s ease;
+}
+/* ...keep existing code... */
+
+/* Update newsletter button */
+.newsletter-card .btn {
+  background: #ca1515;
+}
+
+.newsletter-card .btn:hover {
+  background: #111111;
+}
+
+/* Update footer links hover */
+.footer-link:hover {
+  color: #ca1515;
+}
+
+/* ...keep rest of existing code... */
+
+/* ...existing code... */
+
+.btn {
+  font-weight: 700;
+  /* Thicker text */
+  text-transform: uppercase;
+  color: var(--color, var(--white));
+  /* ...keep existing button properties... */
+}
+
+/* Primary button (Shop Now) */
+.btn-primary {
+  background: #ca1515;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #111111;
+  color: #ffffff;
+  /* Keep text white on hover */
+}
+
+/* Secondary/outline buttons */
+.btn-outline,
+.btn-secondary {
+  background: #ffffff;
+  color: #111111;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover,
+.btn-secondary:hover {
+  background: #ca1515;
+  color: #ffffff;
+  /* Text becomes white on hover */
+}
+
+/* ...existing code... */
+
 .btn {
   background: var(--background, var(--eerie-black));
   color: var(--color, var(--white));
@@ -225,7 +394,56 @@ h3>a {
   margin-bottom: 30px;
 }
 
+/* Base button styles */
+.btn {
+  background: var(--background, var(--eerie-black));
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
 
+/* Primary button (Shop Now) - keep existing */
+.btn-primary {
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* Secondary buttons */
+.btn-secondary {
+  background: #ffffff;
+  color: #111111;
+}
+
+.btn-secondary:hover {
+  background: #ca1515;
+  color: #ffffff;
+}
+
+/* Outline buttons */
+.btn-outline {
+  background: #ffffff;
+  color: #111111;
+}
+
+.btn-outline:hover {
+  background: #ca1515;
+  color: #ffffff;
+}
+
+/* Cart buttons */
+.cart-btn {
+  background: #ffffff;
+  color: #111111;
+}
+
+.cart-btn:hover {
+  background: #ca1515;
+  color: #ffffff;
+}
 
 
 
