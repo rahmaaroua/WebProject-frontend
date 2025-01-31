@@ -917,16 +917,25 @@ ol {
   margin-bottom: 30px;
 }
 
-.footer__widget h6 {
-  color: #111111;
-  font-weight: 600;
+/* More specific selector targeting footer h6 */
+footer.footer .footer__widget h6,
+footer.footer .footer__newslatter h6,
+.footer>.container .footer__widget h6,
+.footer>.container .footer__newslatter h6 {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #111111 !important;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  display: inline-block;
 }
 
 .footer__widget ul li {
   list-style: none;
 }
+
 
 .footer__widget ul li a {
   font-size: 14px;
