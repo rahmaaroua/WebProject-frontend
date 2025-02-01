@@ -6,11 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReviewService {
-  private apiUrl = 'https://localhost:3000/reviews'; // Replace with your actual API endpoint
+  private apiUrl = 'http://localhost:3000/reviews'; // Corrected API endpoint
 
   constructor(private http: HttpClient) {}
 
   getReviews(productId: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?productId=${productId}`);
+    return this.http.get<any[]>(`${this.apiUrl}/product/${productId}`);
+  }
+
+  submitReview(review: { rating: number; comment: string; productId: number; userId: number }): Observable<any> {
+    return this.http.post<any>(this.apiUrl, review);
   }
 }
