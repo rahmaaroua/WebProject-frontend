@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  private link = 'http://localhost:3000/order'; // Base URL pour le backend
+  private link = 'http://localhost:4200/order'; // Base URL pour le backend
 
 
   constructor(private http: HttpClient) { }
