@@ -17,7 +17,12 @@ export class AuthService {
     lastName: 'Dupont',
     email: 'jean.dupont@example.com'
   };
-
+  private userData_with_id = {
+    id : 1,
+    firstName: 'Jean',
+    lastName: 'Dupont',
+    email: 'jean.dupont@example.com'
+  };
 
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -84,6 +89,9 @@ export class AuthService {
 
   getUserData() {
     return this.userData;
+  }
+  getUserData_with_id() {
+    return this.userData_with_id;
   }
   // New method to get the user's full name
   getUserName(): string {
