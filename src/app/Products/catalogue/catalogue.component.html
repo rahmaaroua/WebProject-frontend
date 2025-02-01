@@ -87,16 +87,17 @@
   </dx-popup>
 
   <!-- Review Popup -->
-  <dx-popup [(visible)]="reviewPopupVisible" [showCloseButton]="true" [width]="600" [height]="500">
-    <div *ngIf="selectedProduct">
-      <h2>{{ selectedProduct.title }} Reviews</h2>
-      <div *ngFor="let review of selectedProductReviews">
-        <p>{{ review.content }}</p>
-        <small>By {{ review.author }}</small>
-      </div>
-      <button class="close-button" (click)="closeReviewPopup()">Close</button>
+  <!-- Review Popup -->
+<dx-popup [(visible)]="reviewPopupVisible" [showCloseButton]="true" [width]="600" [height]="500">
+  <div *ngIf="selectedProduct">
+    <h2>{{ selectedProduct.title }} Reviews</h2>
+    <div *ngFor="let review of selectedProductReviews">
+      <p>{{ review.content }}</p>
+      <small>By {{ review.author }}</small>
     </div>
-  </dx-popup>
+    <button class="close-button" (click)="closeReviewPopup()">Close</button>
+  </div>
+</dx-popup>
 
   <app-product-popup
     [product]="currentProduct"

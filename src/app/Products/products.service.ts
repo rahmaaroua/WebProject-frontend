@@ -8,24 +8,29 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ProductsService {
 
-  private pathUrl="http://localhost:3000/products"
-  //private pathUrl = 'https://fakestoreapi.com/products';
+  private pathUrl="http://localhost:3000/products";
+  private reviewsPathUrl="http://localhost:3000/reviews"; // Assuming you have reviews endpoint
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  getProducts(): Observable<any[]> {
+    return this.http.get<any[]>(this.pathUrl);
+  }
 
+  getProduct(id: any): Observable<any> {
+    return this.http.get<any[]>(`${this.pathUrl}/${id}`);
+  }
 
-    getProducts(): Observable<any[]> {
-      return this.http.get<any[]>(this.pathUrl);
-    }
-    getProduct(id:any): Observable<any> {
-      return this.http.get<any[]>(this.pathUrl+'/'+id);
-    }
-    addProduct(product: any): Observable<any> {
-      return this.http.post<any>(`${this.pathUrl}`, product);
-    }
-    updateProduct(product: any): Observable<any> {
-      return this.http.put(`${this.pathUrl}/update/${product.id}`, product);
+  addProduct(product: any): Observable<any> {
+    return this.http.post<any>(`${this.pathUrl}`, product);
+  }
 
+  updateProduct(product: any): Observable<any> {
+    return this.http.put(`${this.pathUrl}/update/${product.id}`, product);
+  }
+
+  // New method to get reviews
+  getReviews(productId: any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.reviewsPathUrl}?productId=${productId}`);
   }
 }
