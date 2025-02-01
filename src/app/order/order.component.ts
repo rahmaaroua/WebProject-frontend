@@ -60,6 +60,7 @@ export class OrderComponent implements OnInit{
      this.orderService.createOrder(OrderData).subscribe(
       (response) => {
         console.log('Commande créée avec succès :', response);
+        window.alert('Votre commande a été soumise avec succès ! 🎉'); 
       },
       (error) => {
         console.error('Erreur lors de la création de la commande :', error);
