@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth.service'; // Import AuthService
 
 
 @Component({
@@ -16,7 +17,8 @@ export class ReviewModalComponent {
 
   constructor(
     public dialogRef: MatDialogRef<ReviewModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { reviews: any[] }
+    @Inject(MAT_DIALOG_DATA) public data: { reviews: any[] },
+    private authService: AuthService // Inject AuthService
   ) {}
 
   onClose(): void {
@@ -24,10 +26,11 @@ export class ReviewModalComponent {
   }
 
   onSubmitReview(): void {
+    const userName = this.authService.getUserName(); // Get the user's name
     const review = {
       content: this.newReview.content,
       rating: this.newReview.rating,
-      author: 'Customer', // Replace with actual author info if available
+      author: userName // Use the user's name
     };
     this.data.reviews.push(review);
     this.newReview = { content: '', rating: 0 }; // Reset the form

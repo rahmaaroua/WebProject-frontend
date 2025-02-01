@@ -85,6 +85,10 @@ export class AuthService {
   getUserData() {
     return this.userData;
   }
+  // New method to get the user's full name
+  getUserName(): string {
+    return `${this.userData.firstName} ${this.userData.lastName}`;
+  }
 }
 
 
