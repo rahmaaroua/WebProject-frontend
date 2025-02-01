@@ -1,11 +1,41 @@
-<h1 mat-dialog-title>Reviews</h1>
-<div mat-dialog-content>
-  <div *ngFor="let review of data.reviews">
-    <p>{{ review.content }}</p>
-    <small>by {{ review.author }}</small>
-    <hr>
+<div class="review-modal">
+  <h1>Reviews</h1>
+  <div class="review-modal-content">
+    <div *ngFor="let review of data.reviews" class="review-item">
+      <p class="review-content">{{ review.content }}</p>
+      <small class="review-author">by {{ review.author }}</small>
+      <div class="stars">
+        <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+          <span class="star" [class.filled]="i < review.rating">★</span>
+        </ng-container>
+      </div>
+      <hr>
+    </div>
   </div>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onClose()">Close</button>
+  
+  <h2>Add a Review</h2>
+  <form (ngSubmit)="onSubmitReview()" class="review-form">
+    <textarea 
+      [(ngModel)]="newReview.content" 
+      name="content" 
+      placeholder="Write your review..." 
+      required 
+      class="review-textarea">
+    </textarea>
+    <div class="rating">
+      <label *ngFor="let star of [1, 2, 3, 4, 5]" class="rating-label">
+        <input 
+          type="radio" 
+          name="rating" 
+          [value]="star" 
+          [(ngModel)]="newReview.rating" 
+          required 
+          class="rating-input">
+        <span class="rating-star">★</span>
+      </label>
+    </div>
+    <button type="submit" class="button-submit">Submit Review</button>
+  </form>
+  
+  <button class="button-close" (click)="onClose()">Close</button>
 </div>

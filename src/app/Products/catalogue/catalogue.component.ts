@@ -13,6 +13,8 @@ import { DataComponent } from '../data/data.component';
 import { Product } from '../product.model';
 import { Cart } from '../../Carts/cart.models';
 import { CartsService } from '../../Carts/carts.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ReviewModalComponent } from '../../review-modal/review-modal.component';
 
 @Component({
   selector: 'app-catalogue',
@@ -53,8 +55,9 @@ export class CatalogueComponent implements OnInit {
   closeButtonOptions: any;
 
   cartProducts: any[] = []; // Array to store cart products
+  newReview = { content: '', rating: 0 }; // Initialize the new review object
 
-  constructor(private service: ProductsService, private cartService: CartsService, private router: Router) {}
+  constructor(private service: ProductsService, private cartService: CartsService, private router: Router, public  dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -116,9 +119,14 @@ export class CatalogueComponent implements OnInit {
 
   openReviewPopup(product: Product) {
     this.service.getReviews(product.id).subscribe((reviews: any[]) => {
-      this.selectedProduct = product;
-      this.selectedProductReviews = reviews;
-      this.reviewPopupVisible = true;
+      const dialogRef = this.dialog.open(ReviewModalComponent, {
+        width: '600px',
+        data: { reviews: reviews }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
     });
   }
 
@@ -132,4 +140,6 @@ export class CatalogueComponent implements OnInit {
     this.currentProduct = product;
     this.popupVisible = true;
   }
+
+  
 }
