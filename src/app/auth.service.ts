@@ -15,7 +15,7 @@ export class AuthService {
     email: 'jean.dupont@example.com'
   };
   private userData_with_id = {
-    id : 1,
+    id: 1,
     firstName: 'Jean',
     lastName: 'Dupont',
     email: 'jean.dupont@example.com'
