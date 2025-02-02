@@ -2171,7 +2171,11 @@ footer.footer .footer__newslatter h6,
 
 .shop__cart__table tbody tr .cart__product__item .cart__product__item__title h6 {
   color: #111111;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 18px;
+    /* Increase from default size */
+    line-height: 1.4;
+    margin-bottom: 5px;
 
 }
 
