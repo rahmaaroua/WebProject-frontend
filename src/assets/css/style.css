@@ -175,7 +175,7 @@ ol {
   font-size: 14px;
   color: #ffffff;
   background: #ca1515;
-  font-weight: 600;
+  font-weight: 500;
   border: none;
   text-transform: uppercase;
   display: inline-block;
@@ -349,6 +349,16 @@ ol {
   text-decoration: none;
 }
 
+.header__menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
 .header__menu ul li {
   list-style: none;
   display: inline-block;
@@ -380,18 +390,21 @@ ol {
 
 .header__menu ul li .dropdown {
   position: absolute;
-  left: 0;
-  top: 56px;
-  width: 150px;
-  background: #111111;
-  text-align: left;
-  padding: 2px 0;
-  z-index: 9;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all, 0.3s;
-  -o-transition: all, 0.3s;
-  transition: all, 0.3s;
+    left: 50%;
+    top: 56px;
+    width: 150px;
+    background: #111111;
+    text-align: left;
+    padding: 2px 0;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
 }
 
 .header__menu ul li .dropdown li {
