@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { Review } from './review-modal/review.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,18 +18,18 @@ export class ReviewService {
     });
   }
 
-  getReviews(productId: string): Observable<any[]> {
+  getReviews(productId: string): Observable<Review[]> {
     const headers = this.getHeaders();
-    return this.http.get<any[]>(`${this.apiUrl}/product/${productId}`, { headers });
+    return this.http.get<Review[]>(`${this.apiUrl}?productId=${productId}`, { headers });
   }
 
-  submitReview(review: { rating: number; comment: string; productId: number; userId: number }): Observable<any> {
+  submitReview(review: { rating: number; comment: string; productId: number; userId: number }): Observable<Review> {
     const headers = this.getHeaders();
-    return this.http.post<any>(this.apiUrl, review, { headers });
+    return this.http.post<Review>(this.apiUrl, review, { headers });
   }
 
-  deleteReview(reviewId: number): Observable<any> {
+  deleteReview(reviewId: number): Observable<{ message: string }> {
     const headers = this.getHeaders();
-    return this.http.delete<any>(`${this.apiUrl}/${reviewId}`, { headers });
+    return this.http.delete<{ message: string }>(`${this.apiUrl}/${reviewId}`, { headers });
   }
 }

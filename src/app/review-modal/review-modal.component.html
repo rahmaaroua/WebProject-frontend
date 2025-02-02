@@ -1,19 +1,19 @@
 <div class="review-modal">
   <h1>Reviews</h1>
-<div class="review-modal-content">
-  <div *ngFor="let review of data.reviews; let i = index" class="review-item">
-    <p class="review-content">{{ review.content }}</p>
-    <small class="review-author">by {{ review.author }}</small>
-    <div class="stars">
-      <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
-        <span class="star" [class.filled]="i < review.rating">★</span>
-      </ng-container>
+  <div class="review-modal-content">
+    <div *ngFor="let review of data.reviews; let i = index" class="review-item">
+      <p class="review-content">{{ review.comment }}</p>
+      <small class="review-author">by {{ review.user.firstName }} {{ review.user.lastName }}</small>
+      <div class="stars">
+        <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let j = index">
+          <span class="star" [class.filled]="j < review.rating">★</span>
+        </ng-container>
+      </div>
+      <!-- Add delete button here -->
+      <button (click)="onDeleteReview(review.id, i)" class="button-delete">Delete</button>
+      <hr>
     </div>
-    <!-- Add delete button here -->
-    <button (click)="onDeleteReview(review.id, i)">Delete</button>
-    <hr>
   </div>
-</div>
   
   <h2>Add a Review</h2>
   <form (ngSubmit)="onSubmitReview()" class="review-form">
