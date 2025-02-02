@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
 import { Review } from './review-modal/review.model';
 
 @Injectable({
@@ -10,7 +9,7 @@ import { Review } from './review-modal/review.model';
 export class ReviewService {
   private apiUrl = 'http://localhost:3000/reviews';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({
@@ -20,7 +19,7 @@ export class ReviewService {
 
   getReviews(productId: string): Observable<Review[]> {
     const headers = this.getHeaders();
-    return this.http.get<Review[]>(`${this.apiUrl}?productId=${productId}`, { headers });
+    return this.http.get<Review[]>(`${this.apiUrl}/product/${productId}`, { headers });
   }
 
   submitReview(review: { rating: number; comment: string; productId: number; userId: number }): Observable<Review> {

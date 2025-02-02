@@ -1,16 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
-
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private link = 'http://localhost:3000/user'; // Base URL pour le backend
-  // private pathUrl="http://localhost:3000/customers"
-  private pathUrl = 'https://fakestoreapi.com/products';
+  private link = 'http://localhost:3000/user';
 
   private userData = {
     firstName: 'Jean',
@@ -24,40 +21,35 @@ export class AuthService {
     email: 'jean.dupont@example.com'
   };
 
-
   constructor(private http: HttpClient, private router: Router) {}
 
-  // Méthode pour enregistrer un utilisateur
-  register(userData: {
-    name: string;
-    email: string;
-    password: string;
-  }): Observable<any> {
+  register(userData: { name: string; email: string; password: string }): Observable<any> {
     return this.http.post(`${this.link}/register`, userData);
   }
 
-  // Méthode pour se connecter
-  login(credentials: {
-    email: string;
-    password: string;
-  }): Observable<{ access_token: string }> {
+  login(credentials: { email: string; password: string }): Observable<{ access_token: string }> {
     return this.http.post<{ access_token: string }>(
       `${this.link}/login`,
       credentials
+    ).pipe(
+      tap(response => {
+        localStorage.setItem('access_token', response.access_token);
+      })
     );
-  } ////pour access access_token c'est le Type de la réponse attendue.
-  //Indique que l'API backend retourne un objet JSON contenant une clé access_token.
+  }
 
-  // Méthode pour récupérer le profil de l'utilisateur
   getProfile(): Observable<any> {
-    return this.http.get(`${this.link}/profile`);
+    return this.http.get(`${this.link}/profile`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('access_token');
     this.router.navigate(['/login']);
   }
-
 
   save(userData: {
     numerotelephone: number | null;
@@ -67,54 +59,34 @@ export class AuthService {
     ville: string;
     adresselivraison: string;
   }): Observable<any> {
-    return this.http.post(`${this.link}/save`, userData);
+    return this.http.post(`${this.link}/save`, userData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
   }
+
   send(email: string): Observable<any> {
-    return this.http.post(`${this.link}/recover-password`, email);
+    return this.http.post(`${this.link}/recover-password`, { email });
   }
 
-  // Méthode pour récupérer les détails de l'utilisateur et son profil
-  /*getUserWithProfile(id: number): Observable<any> {
-      return this.http.get<any>(`${this.link}/${id}`);
-    }
-
-    // Méthode pour récupérer le profil de l'utilisateur
-    getProfileById(id: number): Observable<any> {
-      return this.http.get<any>(`${this.link}/profile/${id}`);
-    }*/
-  // Méthode pour récupérer l'utilisateur et son profil
   getUserWithProfile(id: number): Observable<any> {
-    return this.http.get<any>(`${this.link}/${id}`);
+    return this.http.get<any>(`${this.link}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
   }
 
   getUserData() {
     return this.userData;
   }
+
   getUserData_with_id() {
     return this.userData_with_id;
   }
-  // New method to get the user's full name
+
   getUserName(): string {
     return `${this.userData.firstName} ${this.userData.lastName}`;
   }
 }
-
-
-
-
-/*
-  getCustomers(): Observable<any[]> {
-    return this.http.get<any[]>(this.pathUrl);
-  }
-  getCustomer(id:any): Observable<any> {
-    return this.http.get<any[]>(this.pathUrl+'/'+id);
-  }
-  addCustomer(customer: any): Observable<any> {
-    return this.http.post<any>(`${this.pathUrl}`, customer);
-  }
-  updateCustomer(customer: any): Observable<any> {
-    return this.http.put(`${this.pathUrl}/update/${customer.id}`, customer);
-
-}*/
-
-
