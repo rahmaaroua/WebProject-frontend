@@ -3,13 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { Common } from 'devextreme-angular';
 import { CartsService } from '../carts.service';
 import { Cart, CartItem } from '../cart.models';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [FormsModule, CommonModule, DecimalPipe],
+  imports: [FormsModule, CommonModule, DecimalPipe,RouterModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
