@@ -26,4 +26,9 @@ export class ReviewService {
     const headers = this.getHeaders();
     return this.http.post<any>(this.apiUrl, review, { headers });
   }
+
+  deleteReview(reviewId: number): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.delete<any>(`${this.apiUrl}/${reviewId}`, { headers });
+  }
 }

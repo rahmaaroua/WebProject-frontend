@@ -46,4 +46,15 @@ export class ReviewModalComponent {
       }
     );
   }
+
+  onDeleteReview(reviewId: number, index: number): void {
+    this.reviewService.deleteReview(reviewId).subscribe(
+      (response: any) => {
+        this.data.reviews.splice(index, 1); // Remove the review from the list
+      },
+      (error: any) => {
+        console.error('Error deleting review:', error);
+      }
+    );
+  }
 }

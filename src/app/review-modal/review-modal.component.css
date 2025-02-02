@@ -1,92 +1,129 @@
 /* General modal styles */
 .review-modal {
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  .review-modal h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .review-modal-content {
-    max-height: 400px;
-    overflow-y: auto;
-  }
-  
-  .review-modal-content::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .review-modal-content::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 3px;
-  }
-  
-  .review-modal-content::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-  }
-  
-  .review-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-  }
-  
-  .review-item p {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .review-item small {
-    display: block;
-    margin-top: 5px;
-    color: #999;
-  }
-  
-  .review-item hr {
-    border: 0;
-    border-top: 1px solid #eee;
-    margin: 10px 0;
-  }
-  
-  .button-close {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .button-close:hover {
-    background-color: #c82333;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .review-modal {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.review-modal h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.review-modal-content {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.review-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.review-modal-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.review-modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.review-modal-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.review-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.review-item p {
+  font-size: 16px;
+  color: #444;
+  margin: 5px 0;
+}
+
+.review-item small {
+  display: block;
+  margin-top: 5px;
+  color: #666;
+  font-size: 12px;
+}
+
+.review-item hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+}
+
+.stars {
+  margin-top: 10px;
+}
+
+.star {
+  font-size: 18px;
+  color: #ffd700; /* Gold color for filled stars */
+}
+
+.star.filled {
+  color: #ffd700;
+}
+
+.star:not(.filled) {
+  color: #ddd; /* Light grey for empty stars */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.button-close {
+  background-color: #dc3545;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.button-close:hover {
+  background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .review-modal {
       padding: 15px;
-    }
-  
-    .review-modal h1 {
-      font-size: 20px;
-    }
-  
-    .review-item p {
-      font-size: 13px;
-    }
-  
-    .button-close {
-      padding: 8px 16px;
-    }
   }
+
+  .review-modal h1 {
+      font-size: 24px;
+  }
+
+  .review-item p {
+      font-size: 14px;
+  }
+
+  button {
+      padding: 8px 16px;
+  }
+}
