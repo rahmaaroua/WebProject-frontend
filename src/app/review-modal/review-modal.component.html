@@ -1,6 +1,9 @@
 <div class="review-modal">
   <h1>Reviews</h1>
   <div class="review-modal-content">
+    <div *ngIf="data.reviews.length === 0" class="no-reviews">
+      <p>No reviews yet. Be the first to add a review!</p>
+    </div>
     <div *ngFor="let review of data.reviews; let i = index" class="review-item">
       <p class="review-content">{{ review.comment }}</p>
       <small class="review-author">by {{ review.user.firstName }} {{ review.user.lastName }}</small>
