@@ -11,9 +11,19 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  createOrder(order: any): Observable<any> {
-    return this.http.post<any>(this.link, order);
+createOrder(orderData: any): Observable<any> {
+    const formattedOrder = {
+      name: orderData.user.name,
+      lastName: orderData.user.lastName,
+      email: orderData.user.email,
+      phone: orderData.user.phone,
+      address: orderData.user.address,
+      products: orderData.products,
+      totalPrice: orderData.totalPrice
+    };
+    return this.http.post<any>(this.link, formattedOrder);
   }
+
 
 
   getSelectedProducts(): { name: string; quantity: number; price: number }[] {
