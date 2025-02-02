@@ -10,46 +10,45 @@ import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './order.component.html',
   styleUrl: './order.component.css',
   encapsulation: ViewEncapsulation.ShadowDom,
-
 })
-export class OrderComponent implements OnInit{
-  selectedProducts : CartItem[]=[];
+export class OrderComponent implements OnInit {
+  selectedProducts: CartItem[] = [];
 
   constructor(
     private orderService: OrderService,
     private authService: AuthService,
     private cartservice: CartsService
-  ){}
+  ) {}
 
   ngOnInit(): void {
-      //this.selectedProducts = this.orderService.getSelectedProducts();
+    //this.selectedProducts = this.orderService.getSelectedProducts();
 
     this.cartservice.getSelectedProducts().subscribe((products) => {
       this.selectedProducts = products;
     });
-
   }
 
   userData = this.authService.getUserData();
 
   OrderForm = new FormGroup({
-    name: new FormControl(this.userData.firstName,Validators.required),
-    lastName: new FormControl(this.userData.lastName,Validators.required),
+    name: new FormControl(this.userData.firstName, Validators.required),
+    lastName: new FormControl(this.userData.lastName, Validators.required),
     email: new FormControl(this.userData.email),
-    phone: new FormControl('',Validators.required),
-    address: new FormControl('',Validators.required),
+    phone: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
   });
 
-  calculateTotal(): number{
+  calculateTotal(): number {
     return this.selectedProducts.reduce(
-      (total , product) => total+ product.quantity * product.product.price ,0
+      (total, product) => total + product.quantity * product.product.price,
+      0
     );
   }
-/** 
+  /**
   submitOrder() {
     if(this.OrderForm.valid){
       const OrderData = {
@@ -62,7 +61,7 @@ export class OrderComponent implements OnInit{
      this.orderService.createOrder(OrderData).subscribe(
       (response) => {
         console.log('Commande créée avec succès :', response);
-        window.alert('Votre commande a été soumise avec succès ! 🎉'); 
+        window.alert('Votre commande a été soumise avec succès ! 🎉');
       },
       (error) => {
         console.error('Erreur lors de la création de la commande :', error);
@@ -72,23 +71,30 @@ export class OrderComponent implements OnInit{
 }
 */
 
-async submitOrder() {
-  if (this.OrderForm.valid) {
-    const orderData = {
-      user: this.OrderForm.value,
-      products: this.selectedProducts,
-      totalPrice: this.calculateTotal()
-    };
+  async submitOrder() {
+    if (this.OrderForm.valid) {
+      const orderData = {
+        user: {
+          name: this.OrderForm.get('name')?.value,
+          lastName: this.OrderForm.get('lastName')?.value,
+          email: this.OrderForm.get('email')?.value,
+          phone: this.OrderForm.get('phone')?.value,
+          address: this.OrderForm.get('address')?.value,
+        },
+        products: this.selectedProducts,
+        totalPrice: this.calculateTotal(),
+      };
 
-    try {
-      const response = await firstValueFrom(this.orderService.createOrder(orderData));
-      console.log('Commande créée avec succès :', response);
-      alert('Votre commande a été soumise avec succès !');
-    } catch (error) {
-      console.error('Erreur lors de la création de la commande :', error);
-      alert('Une erreur s\'est produite lors de la soumission de la commande.');
+      try {
+        const response = await firstValueFrom(
+          this.orderService.createOrder(orderData)
+        );
+        console.log('Order created successfully:', response);
+        alert('Your order has been submitted successfully!');
+      } catch (error) {
+        console.error('Error creating order:', error);
+        alert('An error occurred while submitting the order.');
+      }
     }
   }
-}
-
 }
