@@ -5,6 +5,8 @@ import { OrderService } from '../order.service';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../Carts/cart.models';
 import { CartsService } from '../Carts/carts.service';
+import { firstValueFrom } from 'rxjs';
+
 @Component({
   selector: 'app-order',
   standalone: true,
@@ -35,8 +37,8 @@ export class OrderComponent implements OnInit{
   userData = this.authService.getUserData();
 
   OrderForm = new FormGroup({
-    name: new FormControl('',Validators.required),
-    lastName: new FormControl('',Validators.required),
+    name: new FormControl(this.userData.firstName,Validators.required),
+    lastName: new FormControl(this.userData.lastName,Validators.required),
     email: new FormControl(this.userData.email),
     phone: new FormControl('',Validators.required),
     address: new FormControl('',Validators.required),
@@ -47,7 +49,7 @@ export class OrderComponent implements OnInit{
       (total , product) => total+ product.quantity * product.product.price ,0
     );
   }
-
+/** 
   submitOrder() {
     if(this.OrderForm.valid){
       const OrderData = {
@@ -66,6 +68,26 @@ export class OrderComponent implements OnInit{
         console.error('Erreur lors de la création de la commande :', error);
       }
     );
+  }
+}
+*/
+
+async submitOrder() {
+  if (this.OrderForm.valid) {
+    const orderData = {
+      user: this.OrderForm.value,
+      products: this.selectedProducts,
+      totalPrice: this.calculateTotal()
+    };
+
+    try {
+      const response = await firstValueFrom(this.orderService.createOrder(orderData));
+      console.log('Commande créée avec succès :', response);
+      alert('Votre commande a été soumise avec succès !');
+    } catch (error) {
+      console.error('Erreur lors de la création de la commande :', error);
+      alert('Une erreur s\'est produite lors de la soumission de la commande.');
+    }
   }
 }
 
