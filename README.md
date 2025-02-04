@@ -19,17 +19,20 @@ Clone the repository and navigate into the project directory:
 
 ```bash
 git clone <repo-url>
+
 cd WebProject_frontend
 2. Install Dependencies
 Install all the necessary dependencies using npm:
 
 ```bash
 npm install
+
 ### 3. Run the Development Server
 Start the development server with Angular CLI:
 
 ```bash
 ng serve
+
 After the server starts, open your browser and navigate to:
 http://localhost:4200
 
@@ -38,6 +41,7 @@ To create a production-ready build, run:
 
 ```bash
 ng build --prod
+
 The build artifacts will be stored in the dist/ directory.
 
 ## 🧪 Testing
