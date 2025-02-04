@@ -1,27 +1,53 @@
-# TrendoraFrontend
+# WebProject_frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+## 📖 Project Description  
+Modern e-commerce frontend built with **Angular**, featuring a dynamic and user-friendly interface for seamless shopping experiences.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Key Features  
+- Product browsing, searching, and filtering  
+- Secure user authentication  
+- Smooth cart and checkout flow  
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🛠️ Installation  
 
-## Build
+### 1. Clone the Repository  
+Clone the repository and navigate into the project directory:  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+git clone <repo-url>
+cd WebProject_frontend
+2. Install Dependencies
+Install all the necessary dependencies using npm:
 
-## Running unit tests
+```bash
+npm install
+### 3. Run the Development Server
+Start the development server with Angular CLI:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+ng serve
+After the server starts, open your browser and navigate to:
+http://localhost:4200
 
-## Running end-to-end tests
+## 🏗️ Build for Production
+To create a production-ready build, run:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+ng build --prod
+The build artifacts will be stored in the dist/ directory.
 
-## Further help
+## 🧪 Testing
+Run Unit Tests
+Execute unit tests with:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng test
+
+## 📚 Resources
+Angular Official Documentation
+## 📄 License
+This project is licensed under the MIT License.
